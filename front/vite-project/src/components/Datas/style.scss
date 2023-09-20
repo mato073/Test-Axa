@@ -1,0 +1,28 @@
+.datas {
+    margin-top: 1rem;
+    padding: 2rem;
+    font-size: 0.9rem;
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+        margin-bottom: 20px;
+
+        th,
+        td {
+            text-align: center;
+            padding: 5px;
+            border: 1px solid black;
+        }
+
+        tr:nth-child(1) {
+            background-color: #f2f2f2;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    }
+}
