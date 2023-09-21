@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo, useRef, useEffect } from 'react';
 import * as d3 from "d3";
 import { DataPoint } from '../../types/stock';
 import './style.scss'
@@ -7,17 +7,17 @@ interface ChartProps {
     data: DataPoint[]
 }
 
-const Chart = React.memo(({ data }: ChartProps) => {
-    const chartRef = React.useRef(null);
+const Chart = memo(({ data }: ChartProps) => {
+    const chartRef = useRef(null);
 
-    React.useEffect(() => {
+    useEffect(() => {
         const width = 900;
         const height = 400;
         const svg = d3.select(chartRef.current)
             .attr("width", width)
             .attr("height", height)
             .style('overflow', 'visible')
-     
+
         const xDomain = d3.extent(data, d => new Date(d.timestamp))
         const yDomain = d3.extent(data, d => Number(d.stocks))
         if (xDomain[0] && xDomain[1] && yDomain[0] && yDomain[1]) {
@@ -67,7 +67,7 @@ const Chart = React.memo(({ data }: ChartProps) => {
 
     }, [data]);
 
-    return <div  className='chart'>
+    return <div data-testid="chart" className='chart'>
         <div>
             <svg ref={chartRef} />
         </div>

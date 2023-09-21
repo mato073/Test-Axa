@@ -1,6 +1,7 @@
 import express from "express";
 import nunjucks from "nunjucks";
 import path from "path";
+import cors from "cors";
 
 const app = express();
 
@@ -10,6 +11,10 @@ nunjucks.configure(path.join(__dirname, "./front"), {
   autoescape: true,
   express: app
 });
+
+app.use(cors({
+  origin: true
+}))
 
 app.use(
   express.static(path.join(__dirname, "/.public"), { maxAge: 31536000000 })

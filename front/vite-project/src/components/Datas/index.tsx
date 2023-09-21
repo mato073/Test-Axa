@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo, useCallback } from 'react';
 
 import EditableCell from './components/EditableCell';
 
@@ -11,32 +11,34 @@ interface DatasProps {
     editTableValue: (index: number, value: string) => void
 }
 
-const Datas = React.memo(({ data, editTableValue }: DatasProps) => {
+const Datas = memo(({ data, editTableValue }: DatasProps) => {
 
-    const editTableValueCallback = React.useCallback((index: number, value: string) => {
+    const editTableValueCallback = useCallback((index: number, value: string) => {
         editTableValue(index, value)
     }, [editTableValue])
 
 
     return (
-        <div className='datas'>
+        <div data-testid="datas" className='datas'>
             <div>
                 <table >
-                    <tr>
-                        {data.map((d, i) => {
-                            const date = new Date(d.timestamp)
-                            const formattedDate = `${date.getDate() + 1}/${date.getMonth()}/${date.getFullYear()}`
-                            return <td key={i}>{formattedDate}</td>
-                        })}
-                    </tr>
-                    <tr>
-                        {data.map((d, i) => {
-                            return <td key={i}>
-                                <EditableCell value={d.stocks} index={i} editTableValue={editTableValueCallback} />
-                            </td>
-                        }
-                        )}
-                    </tr>
+                    <tbody>
+                        <tr>
+                            {data.map((d, i) => {
+                                const date = new Date(d.timestamp)
+                                const formattedDate = `${date.getDate() + 1}/${date.getMonth()}/${date.getFullYear()}`
+                                return <td key={i}>{formattedDate}</td>
+                            })}
+                        </tr>
+                        <tr>
+                            {data.map((d, i) => {
+                                return <td key={i}>
+                                    <EditableCell value={d.stocks} index={i} editTableValue={editTableValueCallback} />
+                                </td>
+                            }
+                            )}
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div>

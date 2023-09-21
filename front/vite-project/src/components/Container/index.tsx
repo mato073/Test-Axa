@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 
 import Chart from "../Chart";
 import Datas from "../Datas";
@@ -11,19 +11,21 @@ import './style.scss';
 
 
 const Container = () => {
-    const [data, setData] = React.useState<DataPoint[]>([]);
-    const [error, setError] = React.useState<boolean>(false);
-    const [loading, setLoading] = React.useState<boolean>(false);
+    const [data, setData] = useState<DataPoint[]>([]);
+    const [error, setError] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(false);
 
-    React.useEffect(() => {
+    useEffect(() => {
         const fetchData = async () => {
             setLoading(true);
-            const response: DataPoint[] = await api();
+            const response: DataPoint[] | 'error' = await api();
+            if (response === 'error') {
+                setError(true);
+                setLoading(false);
+                return;
+            }
             if (response) {
                 setData(response);
-                setLoading(false);
-            } else {
-                setError(true);
                 setLoading(false);
             }
         }
