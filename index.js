@@ -1,7 +1,7 @@
-import express from "express";
-import nunjucks from "nunjucks";
-import path from "path";
-import cors from "cors";
+const express = require('express')
+const nunjucks = require('nunjucks')
+const path = require('path')
+const cors = require('cors')
 
 const app = express();
 

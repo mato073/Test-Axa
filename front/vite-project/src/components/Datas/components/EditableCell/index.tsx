@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import "./style.scss";
 
 const EditableCell = ({ value, index, editTableValue }:
@@ -7,7 +7,7 @@ const EditableCell = ({ value, index, editTableValue }:
         index: number,
         editTableValue: (index: number, value: string) => void
     }) => {
-    const [inputValue, setInputValue] = React.useState<string>(value);
+    const [inputValue, setInputValue] = useState<string>(value);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.target.value);
