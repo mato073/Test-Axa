@@ -1,33 +1,28 @@
 ## Getting started
 
-Install packages
+Install both Front and Back application
 
 ```
-npm i
+npm run init
 ```
 
-Start Api
+Start Front and Back application
 
 ```bash
-npm run start-api
+npm run start
 ```
+You can access the application by following this link
 
-Start Api which response with delay (10s)
+<http://localhost:5173/>
+
+
+Launch all tests
 
 ```bash
-npm run delay-api
+npm run all-tests
 ```
 
 Start Server
-
-```bash
-# Dev
-npm run watch
-npm run dev
-
-# Prod
-npm run start
-```
 
 ## Api Routes
 
@@ -43,7 +38,7 @@ To load all available stock value samples :
 $> curl http://localhost:3000/stocks
 ```
 
-More exemple : [here](https://github.com/typicode/json-server#routes)
+<!-- More exemple : [here](https://github.com/typicode/json-server#routes)
 
 Queries return a JSON array of stock samples :
 
@@ -60,4 +55,4 @@ Queries return a JSON array of stock samples :
     stocks: "18.335"
   }
 ];
-```
+``` -->

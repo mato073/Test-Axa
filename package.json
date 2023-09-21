@@ -9,7 +9,7 @@
     "start": "concurrently --kill-others-on-fail \"npm run back\" \"npm run front\"",
     "back": "cd back && npm run dev",
     "front": "cd front && npm run dev",
-    "all-test": "concurrently --kill-others-on-fail \"npm run test-back\" \"npm run test-front\"",
+    "all-tests": "concurrently --kill-others-on-fail \"npm run test-back\" \"npm run test-front\"",
     "test-back": "cd back && npm run test",
     "test-front": "cd front && npm run test"
   },
