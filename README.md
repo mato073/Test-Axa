@@ -3,7 +3,7 @@
 The purpose of the application is to display the evolution of data during a certain period of time.
 
 <p align="center">
-  <img src="./Pictures/App.png" width="350" title="hover text">
+  <img src="./Pictures/App.png" width="450" title="hover text">
 </p>
 
 ## Description
@@ -48,7 +48,7 @@ npm run all-tests
 
 ## Project Hierachy
 
-bash```
+```bash
 ├── Back
 │   ├── api.js
 │   ├── app
