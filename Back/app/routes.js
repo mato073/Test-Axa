@@ -10,6 +10,8 @@ module.exports = () => {
 
   app.get("/stocks", function (req, res) {
     const { _limit } = req.query;
+    if (_limit && !Number(_limit))
+      res.status(400).json({ error: "Invalid _limit param" });
     try {
       const data = api();
 

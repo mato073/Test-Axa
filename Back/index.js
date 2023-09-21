@@ -25,3 +25,6 @@ app.use(require("./app/routes")(app));
 app.listen(1337, () => {
   console.log(`Server started ➜ http://localhost:1337`);
 });
+
+
+module.exports = app;
