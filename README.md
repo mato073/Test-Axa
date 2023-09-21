@@ -1,14 +1,22 @@
-## Stock Graphique
+## Data Visualization Application
 
-The purpose of the application is to display the evolution of data during a certain period of time.
+The Real-Time Data Visualization Application is designed to provide users with a dynamic view of data trends over a specified time period. It accomplishes this by fetching and displaying a collection of 20 objects, each containing a value and a timestamp, in the form of an interactive chart.
+
 
 <p align="center">
   <img src="./Pictures/App.png" width="450" title="hover text">
 </p>
 
-## Description
-This application will fetch a set of 20 object that containe a value and timeStemp and will then be displayd as 
-a chart. the user can then change the value of a difined value by clicking on it and then the chart will be modify acordingly
+## Key Features
+
+1. **Data Display:** The application fetches a set of 20 data, allowing users to observe changes in the dataset.
+
+2. **Interactive Charts:** Users can interact with the chart by clicking on individual data value. When a data is clicked, users have the ability to modify its value, and the chart is updated to reflect these changes.
+
+## Purpose
+
+This application is particularly useful for scenarios where users need to monitor and analyze data trends, make on-the-fly adjustments, and visualize the impact of those changes. Whether it's for financial data analysis, sensor data monitoring, or any other time-series data exploration, this application provides a user-friendly and dynamic solution.
+
 
 
 ## Technologies Used
@@ -36,9 +44,7 @@ Start Front and Back application
 ```bash
 npm run start
 ```
-You can access the application by following this link
-
-<http://localhost:5173>
+You can access the application by following this link: <http://localhost:5173>
 
 Launch all tests
 

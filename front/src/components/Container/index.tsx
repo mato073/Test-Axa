@@ -29,7 +29,7 @@ const Container = () => {
                 setLoading(false);
             }
         }
-        fetchData();
+        if (!data.length) fetchData();
     }, [])
 
     const editTableValue = (index: number, value: string) => {
