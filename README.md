@@ -7,6 +7,15 @@ The Real-Time Data Visualization Application is designed to provide users with a
   <img src="./Pictures/App.png" width="450" title="hover text">
 </p>
 
+
+## Table of Contents
+
+1. [Key Features](#key-features)
+2. [Purpose](#purpose)
+3. [Technologies Used](#technologies-Used)
+4. [Installation and usage](#installation-and-usage)
+5. [Project Hierachy](#project-Hierachy)
+
 ## Key Features
 
 1. **Data Display:** The application fetches a set of 20 data, allowing users to observe changes in the dataset.
