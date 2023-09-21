@@ -1,10 +1,21 @@
 import '@testing-library/jest-dom'
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor, fireEvent, act } from '@testing-library/react';
 import * as api from '../../utils/api';
 
 import Container from './index';
 
 jest.mock('../../utils/api');
+
+const mockData = [
+    {
+        timestamp: 1614556800000,
+        stocks: '10'
+    },
+    {
+        timestamp: 1614643200000,
+        stocks: '20'
+    }
+]
 
 test('renders loading message initially', () => {
     render(<Container />);
@@ -31,3 +42,32 @@ test('renders chart and datas if api call succeeds', async () => {
         expect(datasElement).toBeInTheDocument();
     });
 });
+
+test('renders Container and display proper input with value', async () => {
+    (api.api as jest.Mock).mockResolvedValue(mockData);
+    render(<Container />);
+    await waitFor(() => {
+        const datasElement = screen.getByTestId('datas');
+        expect(datasElement).toBeInTheDocument();
+    });
+    const inputElements = screen.getAllByTestId('editable-cell-input');
+
+    expect(inputElements[0]).toHaveValue('10');
+});
+
+test('State is updated on input blur', async () => {
+    (api.api as jest.Mock).mockResolvedValue(mockData);
+    render(<Container />);
+    await waitFor(() => {
+        const datasElement = screen.getByTestId('datas');
+        expect(datasElement).toBeInTheDocument();
+    });
+    const inputElements = screen.getAllByTestId('editable-cell-input');
+
+    expect(inputElements[0]).toHaveValue('10');
+    act(() => {
+        fireEvent.change(inputElements[0], { target: { value: '20' } });
+        inputElements[0].blur();
+    })
+    expect(inputElements[0]).toHaveValue('20');
+})

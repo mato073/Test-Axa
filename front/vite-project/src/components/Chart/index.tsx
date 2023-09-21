@@ -47,7 +47,7 @@ const Chart = memo(({ data }: ChartProps) => {
                 });
 
             const yAxis = d3.axisLeft(yScale)
-                .ticks(8)
+                .ticks(5)
             svg.append("g")
                 .call(xAxis)
                 .attr("transform", `translate(0, ${height})`)

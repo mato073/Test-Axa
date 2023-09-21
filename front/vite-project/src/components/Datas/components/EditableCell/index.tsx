@@ -18,6 +18,7 @@ const EditableCell = ({ value, index, editTableValue }:
     }
 
     return <input
+        data-testid="editable-cell-input"
         className="editableCell-input"
         type="text"
         value={inputValue}

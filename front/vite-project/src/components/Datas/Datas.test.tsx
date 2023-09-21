@@ -20,9 +20,3 @@ test('render Datas component without errors', () => {
     const chartElement = getByTestId('datas');
     expect(chartElement).not.toBeNull();
 });
-
-test('execute fake editTableValue function', () => {
-
-
-})
-

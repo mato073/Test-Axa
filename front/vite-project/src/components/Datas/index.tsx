@@ -1,6 +1,7 @@
 import { memo, useCallback } from 'react';
 
 import EditableCell from './components/EditableCell';
+import HeaderCell from './components/HeaderCell';
 
 import { DataPoint } from '../../types/stock';
 
@@ -27,7 +28,9 @@ const Datas = memo(({ data, editTableValue }: DatasProps) => {
                             {data.map((d, i) => {
                                 const date = new Date(d.timestamp)
                                 const formattedDate = `${date.getDate() + 1}/${date.getMonth()}/${date.getFullYear()}`
-                                return <td key={i}>{formattedDate}</td>
+                                return <td key={i}>
+                                    <HeaderCell value={formattedDate} />
+                                </td>
                             })}
                         </tr>
                         <tr>
